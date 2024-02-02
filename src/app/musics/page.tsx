@@ -11,17 +11,20 @@ export default function MusicPage() {
 
 
     const listMusics: any[] =
-        [{
+        [{  
+            id: 1,
             name: 'Jhon Doe',
             image: '@/images/image001.jpg',
             title: 'Music'
         },
         {
+            id: 2,
             name: 'Jhon Doe',
             image: '@/images/image002.jpg',
             title: 'Music'
         },
         {
+            id: 3,
             name: 'Jhon Doe',
             image: '@/images/image003.jpg',
             title: 'Music'
@@ -39,7 +42,7 @@ export default function MusicPage() {
                     {
                         listMusics.map(value => {
                             return (
-                                <MusicPlayerComponent></MusicPlayerComponent>
+                                <MusicPlayerComponent key={value.id}></MusicPlayerComponent>
                             )
 
                         })
