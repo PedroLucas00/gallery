@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '../../../../lib/prisma';
 import { NextResponse } from 'next/server';
 
-export async function GET(req: NextApiRequest, res: NextResponse) {
+export async function GET(req: Request, context: any) {
     try {
         let response = await prisma.category.findMany();
 
@@ -21,9 +21,10 @@ export async function GET(req: NextApiRequest, res: NextResponse) {
     }
 }
 
-export async function POST(req: NextApiRequest, res: NextResponse) {
+export async function POST(req: Request, context: any) {
     try {
-        let response = await prisma.category.create({ data: req.body });
+        const body = await req.json();
+        let response = await prisma.category.create({ data: body as any });
 
         if (response.id !== null) {
             return NextResponse.json({ status: 200, id: response.id, message: "Created if succefully" })

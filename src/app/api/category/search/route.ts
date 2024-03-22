@@ -7,8 +7,7 @@ export async function GET(req: Request, context: any) {
 
         let response = await prisma.category.findMany({
             where: {
-                
-                name: name
+                id: id
             }
         });
 
