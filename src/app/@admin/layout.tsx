@@ -26,13 +26,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {token !== null ? admin :
+        {children}
+       {/*  {token !== null ? admin :
           <>
             <TopMenu></TopMenu>
             {children}
             <FooterComponent></FooterComponent>
           </>
-        }
+        } */}
       </body>
     </html>
   );
