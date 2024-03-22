@@ -19,7 +19,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const token = window.localStorage.getItem('token');
+//   const token = window.localStorage.getItem('token');
 
   return (
     <html lang="en">
