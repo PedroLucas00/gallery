@@ -16,10 +16,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  admin,
 }: Readonly<{
   children: React.ReactNode;
-  admin: React.ReactNode;
 }>) {
   const token = window.localStorage.getItem('token');
 
