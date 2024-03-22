@@ -4,7 +4,7 @@
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
 
-import MusicPlayerComponent from "@/components/music-player";
+import MusicPlayerComponent from "../../components/music-player";
 
 
 export default function MusicPage() {
