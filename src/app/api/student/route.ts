@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '../../../../lib/prisma';
 import { NextResponse } from 'next/server';
 
-export async function GET(req: NextApiRequest, res: NextResponse) {
+export async function GET(req: Request, context: any) {
     try {
         let response = await prisma.student.findMany();
 
