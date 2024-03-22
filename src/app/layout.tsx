@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
   admin: React.ReactNode;
 }>) {
-  const token = window.localStorage.getItem('token');
+  const token = "";
 
   return (
     <html lang="en">
