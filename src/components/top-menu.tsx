@@ -4,30 +4,29 @@
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
 import Link from "next/link"
+import logo from "@/images/logo.png"
+import Image from "next/image"
 
 export default function TopMenu() {
   return (
     <nav className="flex justify-between items-center py-4 px-8 bg-white content-center">
       <div className="flex items-center space-x-4">
-        <InfinityIcon className="text-red-500 text-3xl" />
-        <span className="text-2xl font-bold text-gray-800">ai-art</span>
+        <Image
+          alt="monalisa_logo"
+          width={50}
+          src={logo}
+        />
       </div>
       <div className="flex space-x-8 content-center justify-items-center">
-        <Link className="text-gray-800 font-semibold hover:text-gray-600 pt-1.5" href="/">
+        <Link className="text-slate-950 font-semibold hover:text-orange-600 duration-200 pt-1.5" href="/">
           Home
         </Link>
-        <Link className="text-gray-800 font-semibold hover:text-gray-600 pt-1.5" href="/images">
-          Images
+        <Link className="text-slate-950 font-semibold hover:text-orange-600 duration-200 pt-1.5" href="/project">
+          Projetos
         </Link>
-        <Link className="text-gray-800 font-semibold hover:text-gray-600 pt-1.5" href="/videos">
-          Videos
+        <Link className="text-slate-950 font-semibold hover:text-orange-600 duration-200 pt-1.5" href="/about">
+          Sobre
         </Link>
-        <Link className="text-gray-800 font-semibold hover:text-gray-600 pt-1.5" href="musics">
-          Music
-        </Link>
-        <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center">
-          Projects
-        </button>
       </div>
     </nav>
   )

@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Projects {
+  id                String                 @id @default(uuid()) @map("_id")
+  name              String?
+  type              String?
+  image             String?
+  categories        CategoriesOnProjects[]
+  students          Student[]
+  createdAt         DateTime               @default(now())
+  updatedAt         DateTime               @updatedAt
+  informations      String?
+  objective         String?
+  projectUrl        String?
+  studentsOnProject StudentsOnProject[]
+
+  // @@map(name: "projects")
+}
+
+model Category {
+  id                String                 @id @default(uuid()) @map("_id") 
+  name              String
+  projects          CategoriesOnProjects[]
+
+  // @@map(name: "categories")
+}
+
+model Student {
+  id           String              @id @default(uuid()) @map("_id") 
+  name         String?
+  profileImage String?
+  projects     StudentsOnProject[]
+  Project      Projects?            @relation(fields: [projectId], references: [id])
+  projectId    String?            
+
+  // @@map(name: "students")
+}
+
+model CategoriesOnProjects {
+  id         String   @id @default(uuid()) @map("_id") 
+  project    Projects  @relation(fields: [projectId], references: [id])
+  projectId  String
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String
+  assignedAt DateTime @default(now())
+  assignedBy String   @default("Admin")
+}
+
+model StudentsOnProject {
+  id         String   @id @default(uuid()) @map("_id") 
+  project    Projects  @relation(fields: [projectId], references: [id])
+  projectId  String
+  students    Student  @relation(fields: [studentId], references: [id])
+  studentId  String
+  assignedAt DateTime @default(now())
+  assignedBy String   @default("Admin")
+}
